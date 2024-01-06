@@ -17,7 +17,12 @@ prune = []
 allow_deprecated = []
 
 [dependencies]
-naga = { version = "0.14.1", features = ["wgsl-in", "wgsl-out", "clone", "span"] }
+web-sys = "0.3.66"
+naga = { git = "https://github.com/Vecvec/wgpu.git", branch = "ray-tracing", features = [
+    "wgsl-in",
+    "wgsl-out",
+    "clone",
+] }
 tracing = "0.1"
 regex = "1.8"
 regex-syntax = "0.7"
@@ -31,6 +36,8 @@ once_cell = "1.17.0"
 indexmap = "2"
 
 [dev-dependencies]
-wgpu = { version = "0.18", features = ["naga"] }
+wgpu = { git = "https://github.com/Vecvec/wgpu.git", branch = "ray-tracing", features = [
+    "naga",
+] }
 futures-lite = "1"
 tracing-subscriber = { version = "0.3", features = ["std", "fmt"] }

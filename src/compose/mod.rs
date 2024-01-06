@@ -495,8 +495,10 @@ impl Composer {
                         name: None,
                         inner: naga::TypeInner::Vector {
                             size: naga::VectorSize::Quad,
-                            kind: naga::ScalarKind::Float,
-                            width: 4,
+                            scalar: naga::Scalar {
+                                kind: naga::ScalarKind::Float,
+                                width: 4,
+                            },
                         },
                     },
                     naga::Span::UNDEFINED,
@@ -1712,6 +1714,9 @@ impl Composer {
             entry_points,
             ..derived.into()
         };
+
+        //naga_module.generate_ray_desc_type();
+        //naga_module.generate_ray_intersection_type();
 
         // apply overrides
         if !composable.override_functions.is_empty() {
