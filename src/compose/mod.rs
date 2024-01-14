@@ -998,7 +998,11 @@ impl Composer {
         let mut owned_constants = HashMap::new();
         for (h, c) in source_ir.constants.iter_mut() {
             if let Some(name) = c.name.as_mut() {
-                if !name.contains(DECORATION_PRE) {
+                if !name.contains(DECORATION_PRE)
+                    && !name.starts_with("__")
+                    && name != "RayDesc"
+                    && name != "RayIntersection"
+                {
                     *name = format!("{name}{module_decoration}");
                     owned_constants.insert(name.clone(), h);
                 }
