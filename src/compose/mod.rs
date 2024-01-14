@@ -1715,8 +1715,8 @@ impl Composer {
             ..derived.into()
         };
 
-        //naga_module.generate_ray_desc_type();
-        //naga_module.generate_ray_intersection_type();
+        naga_module.generate_ray_desc_type();
+        naga_module.generate_ray_intersection_type();
 
         // apply overrides
         if !composable.override_functions.is_empty() {
