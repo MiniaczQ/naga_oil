@@ -1156,8 +1156,8 @@ impl Composer {
             #[allow(clippy::single_element_loop)]
             for language in [
                 ShaderLanguage::Wgsl,
-                #[cfg(feature = "glsl")]
-                ShaderLanguage::Glsl,
+                //#[cfg(feature = "glsl")]
+                //ShaderLanguage::Glsl,
             ] {
                 let header = self
                     .naga_to_string(&mut header_ir, language, &module_definition.name)
